@@ -8,7 +8,7 @@ use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\JadwalController;
 use App\Http\Controllers\KeuanganController;
 use App\Http\Controllers\OrangTuaController;
-use App\Http\Controllers\PenimbanganController;
+use App\Http\Controllers\PengukuranController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 /*
@@ -41,4 +41,5 @@ Route::get('dashboard', [DashboardController::class, 'index']);
 
 
 Route::resource('/balita' ,BalitaController::class);
+Route::resource('/pengukuran' ,PengukuranController::class);
 Route::resource('/orangtua' ,OrangTuaController::class);

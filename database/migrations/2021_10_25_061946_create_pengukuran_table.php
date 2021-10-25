@@ -15,14 +15,19 @@ class CreatePengukuranTable extends Migration
     {
         Schema::create('pengukuran', function (Blueprint $table) {
             $table->id();
-            // $table->foreignId('pelayanan_id');->reference('id')->on('pelayanan')->onDelete('cascade')
+            $table->string('tanggal_pengukuran');
             $table->foreignId('balita_id')->constrained('balita')->onDelete('cascade')->onUpdate('cascade');
-            $table->decimal('berat');
-            $table->decimal('tinggi');
+            $table->decimal('berat_badan');
+            $table->decimal('tinggi_badan');
             $table->decimal('lingkar_lengan');
             $table->decimal('lingkar_kepala');
             $table->string('vitamin');
-            $table->integer('orang_tua_id');
+            $table->string('asi_1');
+            $table->string('asi_2');
+            $table->string('asi_3');
+            $table->string('asi_4');
+            $table->string('asi_5');
+            $table->string('asi_6');
             $table->string('catatan');
             $table->timestamps();
         });
