@@ -43,3 +43,4 @@ Route::get('dashboard', [DashboardController::class, 'index']);
 Route::resource('/balita' ,BalitaController::class);
 Route::resource('/pengukuran' ,PengukuranController::class);
 Route::resource('/orangtua' ,OrangTuaController::class);
+Route::resource('/jadwal' ,JadwalController::class);

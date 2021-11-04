@@ -1,8 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-
-
+<script type="text/javascript" src="{{ asset('/js/app.js') }}"></script>
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
     <li class="breadcrumb-item"><a href="/dashboard" style="color: #F38BA0">Dashboard</a></li>
@@ -29,6 +28,7 @@
               <tr>
                 <th scope="col">No</th>
                 <th scope="col">Nama Balita</th>
+                <th scope="col">Anak Ke-</th>
                 <th scope="col">Tanggal Lahir</th>
                 <th scope="col">NIK Balita</th>
                 <th scope="col">Jenis Kelamin</th>
@@ -42,15 +42,16 @@
                 <tr>
                 <th scope="row">{{ $key + $balita->firstItem()}}</th>
                     <td>{{$item->nama_balita}}</td>
+                    <td>{{$item->anak_ke}}</td>
                     <td>{{date('d F Y',strtotime($item->tgl_lahir))}}</td>
                     <td>{{$item->nik_balita}}</td>
                     <td>{{$item->jenis_kelamin}}</td>
-                    <td>{{$item->orangtua->nama}}</td>
+                    <td>{{$item->orangtua->nama_ortu}}</td>
                     <td>
                         <form action="/balita/{{$item->id}}" method="post" class="d-inline" onsubmit="return confirm('Yakin ingin menghapus data ini?')">
                             @csrf
                             @method('delete')
-                            <button type="submit" class="btn btn-danger" ><i class="fas fa-trash-alt"></i></button>
+                            <button type="submit" class="btn btn-danger" ><i class="fas fa-trash"></i></button>
                         </form>
                         {{-- <a href="/balita/{{$item->id}}" class="btn btn-primary" ><i class="fas fa-search"></i></a>  --}}
                         <a href="/balita/{{$item->id}}/edit" class="btn btn-primary" ><i class="fas fa-edit"></i></a> 

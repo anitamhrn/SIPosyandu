@@ -1,32 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<style>
-    .border-left-primary {
-      border-left: 0.25rem solid #fd6bc5/* #4e73df*/ !important;
-    }
-    .border-left-secondary {
-      border-left: 0.25rem solid #858796 !important;
-    }
-    .border-left-success {
-      border-left: 0.25rem solid #1cc88a !important;
-    }
-    .border-left-info {
-      border-left: 0.25rem solid #36b9cc !important;
-    }
-    .border-left-warning {
-      border-left: 0.25rem solid #f6c23e !important;
-    }
-    .border-left-danger {
-      border-left: 0.25rem solid #e74a3b !important;
-    }
-    .border-left-light {
-      border-left: 0.25rem solid #f8f9fc !important;
-    }
-    .border-left-dark {
-      border-left: 0.25rem solid #5a5c69 !important;
-    }
-    </style>
+<script type="text/javascript" src="{{ asset('/js/app.js') }}"></script>
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
       <li class="breadcrumb-item"><a href="/dashboard" style="color: #F38BA0">Dashboard</a></li>

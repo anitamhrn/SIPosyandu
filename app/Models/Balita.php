@@ -23,7 +23,5 @@ class Balita extends Model
     public function orangtua(){
         return $this->belongsTo(OrangTua::class,'orang_tua_id','id');
     }
-    // public function penimbangan(){
-    //     return $this->hasMany(Penimbangan::class);
-    // }
+    
 }

@@ -18,7 +18,7 @@ class CreateBalitaTable extends Migration
             $table->string('nama_balita');
             $table->string('anak_ke');
             $table->date('tgl_lahir');
-            $table->integer('nik_balita');
+            $table->decimal('nik_balita');
             $table->string('jenis_kelamin');
             $table->foreignId('orang_tua_id');
             $table->timestamps();

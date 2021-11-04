@@ -5,11 +5,22 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"></script>
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="/dashboard" style="color: #fd6bc5">Dashboard</a></li>
-      <li class="breadcrumb-item"><a href="/balita" style="color: #fd6bc5">Data Balita</a></li>
+      <li class="breadcrumb-item"><a href="/dashboard" style="color: #F38BA0">Dashboard</a></li>
+      <li class="breadcrumb-item"><a href="/balita" style="color: #F38BA0">Data Balita</a></li>
       <li class="breadcrumb-item active" aria-current="page">Tambah Data Balita</li>
     </ol>
 </nav>
+
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
 <div class="">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -27,8 +38,17 @@
                     @enderror
                 </div>
                 <div class="form-group">
+                    <label for="anak_ke">Anak Ke-</label>
+                    <input autocomplete="off" type="text" class="form-control @error('anak_ke') is-invalid @enderror" name="anak_ke"  id="anak_ke" value="{{ old('anak_ke') }}">
+                    @error('anak_ke')
+                    <div class="invalid-feedback">
+                    {{$message}}
+                    </div>
+                    @enderror
+               </div>
+                <div class="form-group">
                     <label for="tgl_lahir">Tanggal Lahir</label>
-                    <input autocomplete="off" type="text" class="date form-control @error('tgl_lahir') is-invalid @enderror" name="tgl_lahir"  id="tgl_lahir" value="{{ old('tgl_lahir') }}">
+                    <input autocomplete="off" type="date" class="date form-control @error('tgl_lahir') is-invalid @enderror" name="tgl_lahir"  id="tgl_lahir" value="{{ old('tgl_lahir') }}">
                     @error('tgl_lahir')
                    <div class="invalid-feedback">
                    {{$message}}
@@ -74,7 +94,7 @@
 
 <script type="text/javascript">
     $('.date').datepicker({  
-       format: 'dd-mm-yyyy'
+       format: 'yyyy-mm-dd'
      });  
 </script>
 

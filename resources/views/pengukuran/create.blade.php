@@ -7,13 +7,35 @@
       <li class="breadcrumb-item active" aria-current="page">Tambah Data Pengukuran</li>
     </ol>
 </nav>
-
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 <div class="card shadow p-3 mb-5 bg-white rounded border-left-primary">
 <div class="row justify-content-center">
         <div class="col-md-8">
         <form action="/pengukuran" method="post" enctype="multipart/form-data">
             @csrf
             @method('post')
+            <div class="form-group">
+                <label for="inlineFormCustomSelect">Tanggal Pengukuran</label>
+                <select name="tanggal_pelayanan" class="custom-select mr-sm-2 @error('tanggal_timbang') is-invalid @enderror" id="inlineFormCustomSelect">
+                    @php
+                        $value = '';
+                    @endphp
+                    @foreach ($tanggalPelayanan as $option)
+                        <option value="{{$option->tanggal_pelayanan ?? null}}">
+                            {{$option->tanggal_pelayanan." - ".$value = $option->nama_pelayanan ?? null}}
+                        
+                        </option>
+                    @endforeach
+                </select>
+            </div>
             <div class="form-group">
                 <label for="inlineFormCustomSelect">Nama Balita</label>
                 <select name="balita_id" class="custom-select mr-sm-2 @error('balita_id') is-invalid @enderror" id="inlineFormCustomSelect">
@@ -137,7 +159,7 @@
             </div>
             <div class="form-group">
                 <label for="asi_6">Asi Bulan Ke-6</label>
-                <select name="asi_3" class="custom-select mr-sm-2 @error('asi_6') is-invalid @enderror" id="inlineFormCustomSelect">
+                <select name="asi_6" class="custom-select mr-sm-2 @error('asi_6') is-invalid @enderror" id="inlineFormCustomSelect">
                     <option value="Ya">Ya</option>
                     <option value="Tidak">Tidak</option>
                 </select>
@@ -146,7 +168,8 @@
                     {{$message}}
                 </div>
                 @enderror
-            </div> 
+            </div>
+          
             <div class="form-group">
                 <label for="catatan">Catatan</label>
                 <input autocomplete="off" type="text" class="form-control @error('catatan') is-invalid @enderror" name="catatan"  id="catatan" value="{{ old('tb') }}">

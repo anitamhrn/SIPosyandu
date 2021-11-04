@@ -11,6 +11,7 @@ class PengukuranController extends Controller
 {
     public function index()
     {
+        $tanggalPelayanan = Jadwal::all();
         $balita = Balita::all();
         $pengukuran = Pengukuran::orderBy('created_at','ASC')->with('balita')->paginate(10);
         $beratBadan = [];
@@ -27,6 +28,7 @@ class PengukuranController extends Controller
         $catatan = [];
         
         return view('pengukuran.index',compact(
+            'tanggalPelayanan',
             'pengukuran',
             'balita',
             'beratBadan',
@@ -48,11 +50,13 @@ class PengukuranController extends Controller
     {
         $balita = Balita::all();
         return view('pengukuran.create', compact('balita'));
+        $tanggalPelayanan = Jadwal::all();
+        return view('pengukuran.create', compact('jadwal'));
     }
 
     
 
-    public function store()
+    public function store(Request $request)
     {
         $request->validate([
             'balita_id'=>'required',

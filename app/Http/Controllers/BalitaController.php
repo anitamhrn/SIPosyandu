@@ -25,16 +25,18 @@ class BalitaController extends Controller
     //Melakukan Eksekusi Penyimpanan Ke Database
     public function store(Request $request)
     {
+		
     	$request->validate([
     		'nama_balita'=> 'required',
     		'anak_ke'=> 'required',
     		'tgl_lahir'=> 'required',
-    		'nik_balita'=> 'requeired',
+    		'nik_balita'=> 'required',
     		'jenis_kelamin'=> 'required',
     		'orang_tua_id'=> 'required',
     	]);
+		
     	Balita::create($request->all());
-    	return redirect('/balita')->with('status', 'Data Balita Berhasil Ditambahkan!');
+    	return redirect()->route('balita.index')->with('status', 'Data Balita Berhasil Ditambahkan!');
     }
 
     public function show($id)
@@ -55,7 +57,7 @@ class BalitaController extends Controller
     		'nama_balita'=> 'required',
     		'anak_ke'=> 'required',
     		'tgl_lahir'=> 'required',
-    		'nik_balita'=> 'requeired',
+    		'nik_balita'=> 'required',
     		'jenis_kelamin'=> 'required',
     		'orang_tua_id'=> 'required',
     	]);

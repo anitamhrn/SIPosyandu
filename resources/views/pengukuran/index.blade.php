@@ -5,7 +5,7 @@
 
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="/dashboard" style="color: #FFE2E2">Dashboard</a></li>
+      <li class="breadcrumb-item"><a href="/dashboard" style="color: #F38BA0">Dashboard</a></li>
       <li class="breadcrumb-item active" aria-current="page">Data Pengukuran</li>
     </ol>
 </nav>
