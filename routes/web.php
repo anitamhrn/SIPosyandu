@@ -44,3 +44,6 @@ Route::resource('/balita' ,BalitaController::class);
 Route::resource('/pengukuran' ,PengukuranController::class);
 Route::resource('/orangtua' ,OrangTuaController::class);
 Route::resource('/jadwal' ,JadwalController::class);
+
+// Route::get('/orangtua/{$orangtua}/delete', [OrangTuaController::class, 'destroy']);
+Route::post('/orangtua/{$id}/delete', [OrangTuaController::class, 'destroy']);

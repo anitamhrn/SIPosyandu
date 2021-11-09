@@ -3,17 +3,25 @@
 namespace App\Http\Controllers;
 
 use App\Models\Balita;
+use App\Models\Jadwal;
 use App\Models\OrangTua;
 use App\Models\Pengukuran;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PengukuranController extends Controller
 {
     public function index()
     {
         $tanggalPelayanan = Jadwal::all();
-        $balita = Balita::all();
-        $pengukuran = Pengukuran::orderBy('created_at','ASC')->with('balita')->paginate(10);
+        // $balita = Balita::all();
+        // $pengukuran = Pengukuran::orderBy('created_at','ASC')->with('balita')->paginate(10);
+
+        $pengukuran = Balita::orderBy('created_at', 'ASC')
+            ->join('pengukuran', 'balita.id', '=', 'pengukuran.balita_id')
+            ->select('pengukuran.*', 'balita.nama_balita')
+            ->paginate(10);
+
         $beratBadan = [];
         $tinggiBadan = [];
         $lingkarLengan = [];
@@ -26,11 +34,12 @@ class PengukuranController extends Controller
         $asi5 = [];
         $asi6 = [];
         $catatan = [];
-        
+        $no = 1;
+
         return view('pengukuran.index',compact(
             'tanggalPelayanan',
             'pengukuran',
-            'balita',
+            // 'balita',
             'beratBadan',
             'tinggiBadan',
             'lingkarLengan',
@@ -43,37 +52,47 @@ class PengukuranController extends Controller
             'asi5',
             'asi6',
             'catatan',
+            'no'
         ));
     }
 
     public function create()
     {
         $balita = Balita::all();
-        return view('pengukuran.create', compact('balita'));
         $tanggalPelayanan = Jadwal::all();
-        return view('pengukuran.create', compact('jadwal'));
+        return view('pengukuran.create', compact('tanggalPelayanan', 'balita'));
     }
 
-    
+
 
     public function store(Request $request)
     {
         $request->validate([
+            'tanggal_pengukuran' => 'required',
             'balita_id'=>'required',
             'berat_badan'=>'required',
             'tinggi_badan'=>'required',
             'lingkar_lengan'=>'required',
             'lingkar_kepala'=>'required',
             'vitamin'=>'required',
-            'asi_1'=>'required',
-            'asi_2'=>'required',
-            'asi_3'=>'required',
-            'asi_4'=>'required',
-            'asi_5'=>'required',
-            'asi_6'=>'required',
+            'asi_ke'=>'required',
+            'asi'=>'required',
             'catatan'=>'required'
         ]);
-        Pengukuran::create($request->all());
+
+        $store = ([
+            'tanggal_pengukuran' => $request['tanggal_pengukuran'],
+            'balita_id'=> $request['balita_id'],
+            'berat_badan'=> $request['berat_badan'],
+            'tinggi_badan'=> $request['tinggi_badan'],
+            'lingkar_lengan'=> $request['lingkar_lengan'],
+            'lingkar_kepala'=> $request['lingkar_kepala'],
+            'vitamin'=> $request['vitamin'],
+            $request['asi_ke'] => $request['asi'],
+            'catatan'=> $request['catatan'],
+        ]);
+
+        Pengukuran::create($store);
         return redirect('/pengukuran')->with('status','Data Pengukuran berhasil ditambahkan!');
     }
 
@@ -132,6 +151,6 @@ class PengukuranController extends Controller
         return redirect('/pengukuran')->with('status','Data Pengukuran berhasil dihapus!');
     }
 
-    
+
 
 }

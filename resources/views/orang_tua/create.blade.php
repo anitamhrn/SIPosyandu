@@ -56,7 +56,7 @@
                </div>
                <div class="form-group">
                     <label for="no_hp">No Hp</label>
-                    <input autocomplete="off" type="text" class="form-control @error('no_hp') is-invalid @enderror" name="no_hp"  id="no_hp" value="{{ old('no_hp') }}">
+                    <input autocomplete="off" type="number" class="form-control @error('no_hp') is-invalid @enderror" name="no_hp"  id="no_hp" value="{{ old('no_hp') }}">
                     @error('no_hp')
                     <div class="invalid-feedback">
                     {{$message}}
@@ -65,14 +65,14 @@
                </div>
                 <div class="form-group">
                 <label for="alamat_ortu">Alamat</label>
-                    <input autocomplete="off" type="text" class="form-control @error('alamat_ortu') is-invalid @enderror" name="alamat_ortu"  id="alamat_ortu" value="{{ old('alamat_ortu') }}">
+                    <textarea autocomplete="off" type="text" class="form-control @error('alamat_ortu') is-invalid @enderror" name="alamat_ortu"  id="alamat_ortu" value="{{ old('alamat_ortu') }}"></textarea>
                     @error('alamat_ortu')
                     <div class="invalid-feedback">
                         {{$message}}
                     </div>
                     @enderror
                 </div>
-                
+
                 <button type="submit" class="btn btn-outline-success">Simpan</button>
             </form>
         </div>
@@ -81,9 +81,9 @@
 </div>
 
 <script type="text/javascript">
-    $('.date').datepicker({  
+    $('.date').datepicker({
        format: 'dd-mm-yyyy'
-     });  
+     });
 </script>
 
 @endsection

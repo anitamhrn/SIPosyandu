@@ -29,11 +29,11 @@ class OrangTuaController extends Controller
     public function store(Request $request)
     {
      $request->validate([
-      'nama_ortu'=>'required',
-      'no_kk'=>'required|min:16',
-      'nik_ortu'=>'required',
-      'no_hp'=>'required',
-      'alamat_ortu'=>'required',
+      'nama_ortu'=> 'required|min:2',
+      'no_kk'=> 'required|min:16|max:16',
+      'nik_ortu'=> 'required|min:16|max:16|unique:orang_tua',
+      'no_hp'=> 'required|min:10|max:13',
+      'alamat_ortu'=> 'required',
      ]);
      OrangTua::create($request->all());
      return redirect('/orangtua')->with('status', 'Data Orang Tua Berhasil Ditambahkan!');
@@ -69,9 +69,10 @@ class OrangTuaController extends Controller
      return redirect('/orangtua')->with('status', 'Data Orang Tua Berhasil Diupdate!');
     }
 
-    public function destroy($id)
+    public function destroy(OrangTua $orangtua)
     {
-     OrangTua::destroy($id);
+     OrangTua::where('id', $orangtua->id)
+            ->delete();
      return redirect('/orangtua')->with('status', 'Data Orang Tua Berhasil Dihapus!');
     }
 
