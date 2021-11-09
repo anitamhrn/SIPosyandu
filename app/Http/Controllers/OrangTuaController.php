@@ -18,7 +18,7 @@ class OrangTuaController extends Controller
         $orangTua = OrangTua::orderBy('created_at','ASC')->paginate(10);
         return view('orang_tua.index', compact('orangTua'));
     }
- //Menampilkan View Create 
+ //Menampilkan View Create
     public function create()
     {
      $orangTua = OrangTua::all();
@@ -30,7 +30,7 @@ class OrangTuaController extends Controller
     {
      $request->validate([
       'nama_ortu'=>'required',
-      'no_kk'=>'required',
+      'no_kk'=>'required|min:16',
       'nik_ortu'=>'required',
       'no_hp'=>'required',
       'alamat_ortu'=>'required',
@@ -45,7 +45,7 @@ class OrangTuaController extends Controller
     }
 
  public function edit($id)
-      {   
+      {
           $orangTua = OrangTua::findOrFail($id);
           return view('orang_tua.edit', compact('orangTua'));
       }
@@ -64,7 +64,7 @@ class OrangTuaController extends Controller
        'no_kk'=>$request->no_kk,
        'nik_ortu'=>$request->nik_ortu,
        'no_hp'=>$request->no_hp,
-       'alamat_ortu'=>$request->alamat_ortu,        
+       'alamat_ortu'=>$request->alamat_ortu,
       ]);
      return redirect('/orangtua')->with('status', 'Data Orang Tua Berhasil Diupdate!');
     }
