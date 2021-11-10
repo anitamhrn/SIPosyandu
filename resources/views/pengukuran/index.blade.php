@@ -28,6 +28,7 @@
             <thead style="background: #F38BA0" >
               <tr>
                 <th scope="col">No</th>
+                <th scope="col">Nama Pelayanan</th>
                 <th scope="col">Nama Balita</th>
                 <th scope="col">Berat Badan</th>
                 <th scope="col">Tinggi Badan</th>
@@ -49,6 +50,7 @@
                 @foreach($pengukuran as $key => $item)
                 <tr>
                 <th scope="row">{{ $key + $pengukuran->firstItem()}}</th>
+                    <td>{{$item->jadwal_id}}</td>
                     <td>{{$item->balita_id}}</td>
                     <td>{{$item->berat_badan}}</td>
                     <td>{{$item->tinggi_badan}}</td>

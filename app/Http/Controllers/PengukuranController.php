@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Balita;
 use App\Models\OrangTua;
+use App\Models\Jadwal;
 use App\Models\Pengukuran;
 use Illuminate\Http\Request;
 
@@ -11,9 +12,9 @@ class PengukuranController extends Controller
 {
     public function index()
     {
-        $tanggalPelayanan = Jadwal::all();
+        $jadwal = Jadwal::all();
         $balita = Balita::all();
-        $pengukuran = Pengukuran::orderBy('created_at','ASC')->with('balita')->paginate(10);
+        $pengukuran = Pengukuran::orderBy('created_at','ASC')->with('balita','jadwal')->paginate(10);
         $beratBadan = [];
         $tinggiBadan = [];
         $lingkarLengan = [];
@@ -28,8 +29,9 @@ class PengukuranController extends Controller
         $catatan = [];
         
         return view('pengukuran.index',compact(
-            'tanggalPelayanan',
+            
             'pengukuran',
+            'jadwal_id',
             'balita',
             'beratBadan',
             'tinggiBadan',
@@ -49,9 +51,9 @@ class PengukuranController extends Controller
     public function create()
     {
         $balita = Balita::all();
-        return view('pengukuran.create', compact('balita'));
-        $tanggalPelayanan = Jadwal::all();
-        return view('pengukuran.create', compact('jadwal'));
+        
+        $jadwal = Jadwal::all();
+        return view('pengukuran.create', compact('jadwal','balita'));
     }
 
     

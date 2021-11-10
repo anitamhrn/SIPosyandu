@@ -10,7 +10,7 @@ class Pengukuran extends Model
     use HasFactory;
     protected $table= "pengukuran";
     protected $fillable = [
-        'tanggal_pengukuran',
+        'jadwal_id',
         'balita_id',
         'berat_badan',
         'tinggi_badan',

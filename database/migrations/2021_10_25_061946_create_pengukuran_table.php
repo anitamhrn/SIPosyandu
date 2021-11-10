@@ -15,7 +15,7 @@ class CreatePengukuranTable extends Migration
     {
         Schema::create('pengukuran', function (Blueprint $table) {
             $table->id();
-            $table->string('tanggal_pengukuran');
+            $table->foreignId('jadwal_id')->constrained('jadwal')->onDelete('cascade')->onUpdate('cascade');
             $table->foreignId('balita_id')->constrained('balita')->onDelete('cascade')->onUpdate('cascade');
             $table->decimal('berat_badan');
             $table->decimal('tinggi_badan');
@@ -27,7 +27,7 @@ class CreatePengukuranTable extends Migration
             $table->string('asi_3');
             $table->string('asi_4');
             $table->string('asi_5');
-            $table->string('asi_6');
+            $table->string('asi_6'); 
             $table->string('catatan');
             $table->timestamps();
         });

@@ -23,19 +23,18 @@
             @csrf
             @method('post')
             <div class="form-group">
-                <label for="inlineFormCustomSelect">Tanggal Pengukuran</label>
-                <select name="tanggal_pelayanan" class="custom-select mr-sm-2 @error('tanggal_timbang') is-invalid @enderror" id="inlineFormCustomSelect">
-                    @php
-                        $value = '';
-                    @endphp
-                    @foreach ($tanggalPelayanan as $option)
-                        <option value="{{$option->tanggal_pelayanan ?? null}}">
-                            {{$option->tanggal_pelayanan." - ".$value = $option->nama_pelayanan ?? null}}
-                        
-                        </option>
+                <label for="inlineFormCustomSelect">Nama Pelayanan</label>
+                <select name="jadwal_id" class="custom-select mr-sm-2 @error('jadwal_id') is-invalid @enderror" id="inlineFormCustomSelect">
+                    @foreach ($jadwal as $option)
+                        <option value="{{$option->nama_pelayanan ?? null}}">{{$option->nama_pelayanan ?? null}}</option>
                     @endforeach
                 </select>
             </div>
+            @error('nama_pelayanan')
+            <div class="invalid-feedback">
+                {{$message}}
+            </div>
+            @enderror
             <div class="form-group">
                 <label for="inlineFormCustomSelect">Nama Balita</label>
                 <select name="balita_id" class="custom-select mr-sm-2 @error('balita_id') is-invalid @enderror" id="inlineFormCustomSelect">
