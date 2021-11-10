@@ -50,10 +50,10 @@
                 <tr>
                     <th scope="row">{{$no++}}</th>
                     <td>{{$item->nama_balita}}</td>
-                    <td>{{$item->berat_badan}}</td>
-                    <td>{{$item->tinggi_badan}}</td>
-                    <td>{{$item->lingkar_lengan}}</td>
-                    <td>{{$item->lingkar_kepala}}</td>
+                    <td>{{$item->berat_badan}} Kg</td>
+                    <td>{{$item->tinggi_badan}} Cm</td>
+                    <td>{{$item->lingkar_lengan}} Cm</td>
+                    <td>{{$item->lingkar_kepala}} Cm</td>
                     <td>{{$item->vitamin}}</td>
                     <td>
                         @if ($item->asi_1 == 'Ya')
