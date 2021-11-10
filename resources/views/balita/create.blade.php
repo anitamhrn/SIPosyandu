@@ -84,7 +84,7 @@
                         @endforeach
                     </select>
                 </div>
-                
+
                 <button type="submit" class="btn btn-outline-success">Simpan</button>
             </form>
         </div>
@@ -93,9 +93,9 @@
 </div>
 
 <script type="text/javascript">
-    $('.date').datepicker({  
+    $('.date').datepicker({
        format: 'yyyy-mm-dd'
-     });  
+     });
 </script>
 
 @endsection

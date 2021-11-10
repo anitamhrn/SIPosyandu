@@ -19,7 +19,7 @@
     <div class="card border-left-danger shadow p-3 mb-5 bg-white rounded">
         <div class="d-flex justify-content-lg-end mb-3">
             <a class="btn btn-outline-secondary" href="/pengukuran/create">
-                <span class="icon text"> <i class="fas fa-plus"> </i> </span>Tambah Data 
+                <span class="icon text"> <i class="fas fa-plus"> </i> </span>Tambah Data
             </a>
         </div>
 
@@ -49,6 +49,7 @@
                 <?php $i=1; ?>
                 @foreach($pengukuran as $key => $item)
                 <tr>
+<<<<<<< HEAD
                 <th scope="row">{{ $key + $pengukuran->firstItem()}}</th>
                     <td>{{$item->jadwal_id}}</td>
                     <td>{{$item->balita_id}}</td>
@@ -56,13 +57,58 @@
                     <td>{{$item->tinggi_badan}}</td>
                     <td>{{$item->lingkar_lengan}}</td>
                     <td>{{$item->lingkar_kepala}}</td>
+=======
+                    <th scope="row">{{$no++}}</th>
+                    <td>{{$item->nama_balita}}</td>
+                    <td>{{$item->berat_badan}} Kg</td>
+                    <td>{{$item->tinggi_badan}} Cm</td>
+                    <td>{{$item->lingkar_lengan}} Cm</td>
+                    <td>{{$item->lingkar_kepala}} Cm</td>
+>>>>>>> a92c4888a44b4980bb8e9b0db9feaa798c72abb8
                     <td>{{$item->vitamin}}</td>
-                    <td>{{$item->asi_1}}</td>
-                    <td>{{$item->asi_2}}</td>
-                    <td>{{$item->asi_3}}</td>
-                    <td>{{$item->asi_4}}</td>
-                    <td>{{$item->asi_5}}</td>
-                    <td>{{$item->asi_6}}</td>
+                    <td>
+                        @if ($item->asi_1 == 'Ya')
+                            <i class="bi bi-check-circle text-success icon-asi"></i>
+                        @else
+                            <i class="bi bi-x-circle text-danger icon-asi"></i>
+                        @endif
+                    </td>
+                    <td>
+                        @if ($item->asi_2 == 'Ya')
+                            <i class="bi bi-check-circle text-success icon-asi"></i>
+                        @else
+                            <i class="bi bi-x-circle text-danger icon-asi"></i>
+                        @endif
+                    </td>
+                    <td>
+                        @if ($item->asi_3 == 'Ya')
+                            <i class="bi bi-check-circle text-success icon-asi"></i>
+                        @else
+                            <i class="bi bi-x-circle text-danger icon-asi"></i>
+                        @endif
+                    </td>
+                    <td>
+                        @if ($item->asi_4 == 'Ya')
+                            <i class="bi bi-check-circle text-success icon-asi"></i>
+                        @else
+                            <i class="bi bi-x-circle text-danger icon-asi"></i>
+                        @endif
+                    </td>
+                    <td>
+                        @if ($item->asi_5 == 'Ya')
+                            <i class="bi bi-check-circle text-success icon-asi"></i>
+                        @else
+                            <i class="bi bi-x-circle text-danger icon-asi"></i>
+                        @endif
+                    </td>
+                    <td>
+                        @if ($item->asi_6 == 'Ya')
+                            <i class="bi bi-check-circle text-success icon-asi"></i>
+                        @else
+                            <i class="bi bi-x-circle text-danger icon-asi"></i>
+                        @endif
+                    </td>
+
                     <td>{{$item->catatan}}</td>
                     <td>
                         <form action="/pengukuran/{{$item->id}}" method="post" class="d-inline" onsubmit="return confirm('Yakin ingin menghapus data ini?')">
@@ -71,12 +117,12 @@
                             <button type="submit" class="btn btn-danger" ><i class="fas fa-trash-alt"></i></button>
                         </form>
                         {{-- <a href="/pengukuran/{{$item->id}}" class="btn btn-primary" ><i class="fas fa-search"></i></a>  --}}
-                        <a href="/pengukuran/{{$item->id}}/edit" class="btn btn-primary" ><i class="fas fa-edit"></i></a> 
+                        <a href="/pengukuran/{{$item->id}}/edit" class="btn btn-primary" ><i class="fas fa-edit"></i></a>
                     </td>
                 </tr>
                 @endforeach
             </tbody>
-            
+
         </table>
         {{$pengukuran->links()}}
         </div>

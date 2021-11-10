@@ -15,9 +15,11 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app">
@@ -79,5 +81,34 @@
             @yield('content')
         </main>
     </div>
+
+    <!-- Javascript -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script>
+        function sweetDel(ev) {
+            ev.preventDefault();
+            var urlToRedirect = ev.currentTarget.getAttribute('href'); //use currentTarget because the click may be on the nested i tag and not a tag causing the href to be empty
+            console.log(urlToRedirect); // verify if this is the right URL
+            swal({
+                title: "Kamu Yakin?",
+                text: "Data yang dihapus tidak dapat dikembalikan lagi!",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+            .then((willDelete) => {
+                // redirect with javascript here as per your logic after showing the alert using the urlToRedirect value
+                if (willDelete) {
+                    // window.location.href = urlToRedirect;
+                    swal("Data berhasil dihapus!", {
+                        icon: "success",
+                    })
+                    .then(() => {
+                        window.location.href = urlToRedirect;
+                    });
+                }
+            });
+        }
+    </script>
 </body>
 </html>

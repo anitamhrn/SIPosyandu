@@ -23,10 +23,23 @@
             @csrf
             @method('post')
             <div class="form-group">
+<<<<<<< HEAD
                 <label for="inlineFormCustomSelect">Nama Pelayanan</label>
                 <select name="jadwal_id" class="custom-select mr-sm-2 @error('jadwal_id') is-invalid @enderror" id="inlineFormCustomSelect">
                     @foreach ($jadwal as $option)
                         <option value="{{$option->nama_pelayanan ?? null}}">{{$option->nama_pelayanan ?? null}}</option>
+=======
+                <label for="inlineFormCustomSelect">Tanggal Pengukuran</label>
+                <select name="tanggal_pengukuran" class="custom-select mr-sm-2 @error('tanggal_timbang') is-invalid @enderror" id="inlineFormCustomSelect">
+                    @php
+                        $value = '';
+                    @endphp
+                    @foreach ($tanggalPelayanan as $option)
+                        <option value="{{$option->tanggal_pelayanan ?? null}}">
+                            {{$option->tanggal_pelayanan." - ".$value = $option->nama_pelayanan ?? null}}
+
+                        </option>
+>>>>>>> a92c4888a44b4980bb8e9b0db9feaa798c72abb8
                     @endforeach
                 </select>
             </div>
@@ -49,7 +62,7 @@
             </div>
             @enderror
             <div class="form-group">
-                <label for="berat_badan">Berat Badan</label>
+                <label for="berat_badan">Berat Badan <span style="font-weight: light; font-size: 10px">(KG)</span></label>
                 <input autocomplete="off" type="text" class="form-control @error('berat_badan') is-invalid @enderror" name="berat_badan"  id="berat_badan" value="{{ old('berat_badan') }}">
                 @error('berat_badan')
                 <div class="invalid-feedback">
@@ -58,7 +71,7 @@
                 @enderror
             </div>
             <div class="form-group">
-                <label for="tinggi_badan">Tinggi Badan</label>
+                <label for="tinggi_badan">Tinggi Badan <span style="font-weight: light; font-size: 10px">(CM)</span></label>
                 <input autocomplete="off" type="text" class="form-control @error('tinggi_badan') is-invalid @enderror" name="tinggi_badan"  id="tinggi_badan" value="{{ old('tinggi_badan') }}">
                 @error('tinggi_badan')
                 <div class="invalid-feedback">
@@ -67,7 +80,7 @@
                 @enderror
             </div>
             <div class="form-group">
-                <label for="lingkar_lengan">Lingkar Lengan</label>
+                <label for="lingkar_lengan">Lingkar Lengan <span style="font-weight: light; font-size: 10px">(CM)</span></label>
                 <input autocomplete="off" type="text" class="form-control @error('lingkar_lengan') is-invalid @enderror" name="lingkar_lengan"  id="lingkar_lengan" value="{{ old('lingkar_lengan') }}">
                 @error('lingkar_lengan')
                 <div class="invalid-feedback">
@@ -76,7 +89,7 @@
                 @enderror
             </div>
             <div class="form-group">
-                <label for="lingkar_kepala">Lingkar Kepala</label>
+                <label for="lingkar_kepala">Lingkar Kepala <span style="font-weight: light; font-size: 10px">(CM)</span></label>
                 <input autocomplete="off" type="text" class="form-control @error('lingkar_kepala') is-invalid @enderror" name="lingkar_kepala"  id="lingkar_kepala" value="{{ old('lingkar_kepala') }}">
                 @error('lingkar_kepala')
                 <div class="invalid-feedback">
@@ -86,10 +99,20 @@
             </div>
             <div class="form-group">
                 <label for="vitamin">Vitamin</label>
-                <select name="vitamin" class="custom-select mr-sm-2 @error('vitamin') is-invalid @enderror" id="inlineFormCustomSelect">
-                    <option value="Ya">Ya</option>
-                    <option value="Tidak">Tidak</option>
-                </select>
+                <div class="d-flex">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="vitamin" id="radioVitamin1" value="Ya" checked>
+                        <label class="form-check-label" for="radioVitamin1">
+                            Ya
+                        </label>
+                    </div>
+                    <div class="form-check mx-3">
+                        <input class="form-check-input" type="radio" name="vitamin" value="Tidak" id="radioVitamin2">
+                        <label class="form-check-label" for="radioVitamin2">
+                            Tidak
+                        </label>
+                    </div>
+                </div>
                 @error('vitamin')
                 <div class="invalid-feedback">
                     {{$message}}
@@ -97,10 +120,15 @@
                 @enderror
             </div>
             <div class="form-group">
-                <label for="asi_1">Asi Bulan Ke-1</label>
-                <select name="asi_1" class="custom-select mr-sm-2 @error('asi_1') is-invalid @enderror" id="inlineFormCustomSelect">
-                    <option value="Ya">Ya</option>
-                    <option value="Tidak">Tidak</option>
+                <label for="asi_ke">Asi Bulan Ke-</label>
+                <select name="asi_ke" class="custom-select mr-sm-2 @error('asi_1') is-invalid @enderror" id="inlineFormCustomSelect">
+                    <option selected></option>
+                    <option value="asi_1">1</option>
+                    <option value="asi_2">2</option>
+                    <option value="asi_3">3</option>
+                    <option value="asi_4">4</option>
+                    <option value="asi_5">5</option>
+                    <option value="asi_6">6</option>
                 </select>
                 @error('asi_1')
                 <div class="invalid-feedback">
@@ -109,69 +137,35 @@
                 @enderror
             </div>
             <div class="form-group">
-                <label for="asi_2">Asi Bulan Ke-2</label>
-                <select name="asi_2" class="custom-select mr-sm-2 @error('asi_2') is-invalid @enderror" id="inlineFormCustomSelect">
+                <label for="asi">Diberi Asi</label>
+                <div class="d-flex">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="asi" id="flexRadioDefault1" value="Ya" checked>
+                        <label class="form-check-label" for="flexRadioDefault1">
+                            Ya
+                        </label>
+                    </div>
+                    <div class="form-check mx-3">
+                        <input class="form-check-input" type="radio" name="asi" value="Tidak" id="flexRadioDefault2">
+                        <label class="form-check-label" for="flexRadioDefault2">
+                            Tidak
+                        </label>
+                    </div>
+                </div>
+
+                {{-- <select name="asi" class="custom-select mr-sm-2 @error('asi') is-invalid @enderror" id="inlineFormCustomSelect">
                     <option value="Ya">Ya</option>
                     <option value="Tidak">Tidak</option>
-                </select>
-                @error('asi_2')
+                </select> --}}
+                @error('vitamin')
                 <div class="invalid-feedback">
                     {{$message}}
                 </div>
                 @enderror
             </div>
-            <div class="form-group">
-                <label for="asi_3">Asi Bulan Ke-3</label>
-                <select name="asi_3" class="custom-select mr-sm-2 @error('asi_3') is-invalid @enderror" id="inlineFormCustomSelect">
-                    <option value="Ya">Ya</option>
-                    <option value="Tidak">Tidak</option>
-                </select>
-                @error('asi_3')
-                <div class="invalid-feedback">
-                    {{$message}}
-                </div>
-                @enderror
-            </div>
-            <div class="form-group">
-                <label for="asi_4">Asi Bulan Ke-4</label>
-                <select name="asi_4" class="custom-select mr-sm-2 @error('asi_4') is-invalid @enderror" id="inlineFormCustomSelect">
-                    <option value="Ya">Ya</option>
-                    <option value="Tidak">Tidak</option>
-                </select>
-                @error('asi_4')
-                <div class="invalid-feedback">
-                    {{$message}}
-                </div>
-                @enderror
-            </div>
-            <div class="form-group">
-                <label for="asi_5">Asi Bulan Ke-5</label>
-                <select name="asi_5" class="custom-select mr-sm-2 @error('asi_5') is-invalid @enderror" id="inlineFormCustomSelect">
-                    <option value="Ya">Ya</option>
-                    <option value="Tidak">Tidak</option>
-                </select>
-                @error('asi_5')
-                <div class="invalid-feedback">
-                    {{$message}}
-                </div>
-                @enderror
-            </div>
-            <div class="form-group">
-                <label for="asi_6">Asi Bulan Ke-6</label>
-                <select name="asi_6" class="custom-select mr-sm-2 @error('asi_6') is-invalid @enderror" id="inlineFormCustomSelect">
-                    <option value="Ya">Ya</option>
-                    <option value="Tidak">Tidak</option>
-                </select>
-                @error('asi_6')
-                <div class="invalid-feedback">
-                    {{$message}}
-                </div>
-                @enderror
-            </div>
-          
             <div class="form-group">
                 <label for="catatan">Catatan</label>
-                <input autocomplete="off" type="text" class="form-control @error('catatan') is-invalid @enderror" name="catatan"  id="catatan" value="{{ old('tb') }}">
+                <textarea autocomplete="off" type="text" class="form-control @error('catatan') is-invalid @enderror" name="catatan"  id="catatan" value="{{ old('tb') }}"></textarea>
                 @error('catatan')
                 <div class="invalid-feedback">
                     {{$message}}
@@ -185,9 +179,9 @@
 </div>
 
 <script type="text/javascript">
-    $('.date').datepicker({  
+    $('.date').datepicker({
        format: 'dd-mm-yyyy'
-     });  
+     });
 </script>
 
 @endsection

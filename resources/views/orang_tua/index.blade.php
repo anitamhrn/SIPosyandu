@@ -18,9 +18,9 @@
     <div class="card border-left-primary shadow p-3 mb-5 bg-white rounded">
         <div class="d-flex justify-content-lg-end mb-3">
             <a class="btn btn-outline-secondary" href="/orangtua/create"><span class="icon text">
-                <i class="fas fa-plus"></i>
+                <i class="bi bi-plus-square"></i>
             </span>Tambah Data</a>
-    
+
         </div>
         <div class="table-responsive">
         <table class="table table-hover" id="dataTable" width="100%" cellspacing="0">
@@ -49,15 +49,16 @@
                         <form action="/orangtua/{{$item->id}}" method="post" class="d-inline" onsubmit="return confirm('Yakin ingin menghapus data ini?')">
                             @csrf
                             @method('delete')
-                            <button type="submit" class="btn btn-danger" ><i class="fas fa-trash-alt"></i></button>
+                            <button type="submit" class="btn btn-danger" ><i class="bi bi-trash"></i></button>
                         </form>
+                        {{-- <a href="/orangtua/{{$item->id}}/delete" class="btn btn-primary" onclick="return sweetDel(event)"><i class="bi bi-trash"></i></a> --}}
                         {{-- <a href="/balita/{{$item->id}}" class="btn btn-primary" ><i class="fas fa-search"></i></a>  --}}
-                        <a href="/orangtua/{{$item->id}}/edit" class="btn btn-primary" ><i class="fas fa-edit"></i></a> 
+                        <a href="/orangtua/{{$item->id}}/edit" class="btn btn-primary" ><i class="bi bi-pencil-square"></i></a>
                     </td>
                 </tr>
                 @endforeach
             </tbody>
-            
+
         </table>
         {{$orangTua->links()}}
         </div>

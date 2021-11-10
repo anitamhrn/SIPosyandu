@@ -21,7 +21,7 @@
                 @method('patch')
                 <div class="form-group">
                     <label for="nama_ortu">Nama Ortu</label>
-                    <input type="text" class="form-control @error('nama_ortu') is-invalid @enderror" name="nama_ortu"  id="nama_ortu" value="{{ old('nama_ortu') }}">
+                    <input type="text" class="form-control @error('nama_ortu') is-invalid @enderror" name="nama_ortu"  id="nama_ortu" value="{{ old('nama_ortu', $orangTua->nama_ortu) }}">
                     @error('nama_ortu')
                     <div class="invalid-feedback">
                         {{$message}}
@@ -30,7 +30,7 @@
                 </div>
                 <div class="form-group">
                     <label for="no_kk">No KK</label>
-                    <input type="text" class="form-control @error('no_kk') is-invalid @enderror" name="no_kk"  id="no_kk" value="{{ old('no_kk') }}">
+                    <input type="text" class="form-control @error('no_kk') is-invalid @enderror" name="no_kk"  id="no_kk" value="{{ old('no_kk', $orangTua->no_kk) }}">
                     @error('no_kk')
                     <div class="invalid-feedback">
                     {{$message}}
@@ -39,7 +39,7 @@
                </div>
                <div class="form-group">
                     <label for="nik_ortu">NIK Ortu</label>
-                    <input type="text" class="form-control @error('nik_ortu') is-invalid @enderror" name="nik_ortu"  id="nik_ortu" value="{{ old('nik_ortu') }}">
+                    <input type="text" class="form-control @error('nik_ortu') is-invalid @enderror" name="nik_ortu"  id="nik_ortu" value="{{ old('nik_ortu', $orangTua->nik_ortu) }}">
                     @error('nik_ortu')
                     <div class="invalid-feedback">
                     {{$message}}
@@ -48,7 +48,7 @@
                </div>
                <div class="form-group">
                     <label for="no_hp">No Hp</label>
-                    <input type="text" class="form-control @error('no_hp') is-invalid @enderror" name="no_hp"  id="no_hp" value="{{ old('no_hp') }}">
+                    <input type="text" class="form-control @error('no_hp') is-invalid @enderror" name="no_hp"  id="no_hp" value="{{ old('no_hp', $orangTua->no_hp) }}">
                     @error('no_hp')
                     <div class="invalid-feedback">
                     {{$message}}
@@ -57,14 +57,14 @@
                </div>
                 <div class="form-group">
                 <label for="alamat_ortu">Alamat</label>
-                    <input type="text" class="form-control @error('alamat_ortu') is-invalid @enderror" name="alamat_ortu"  id="alamat_ortu" value="{{ old('alamat_ortu') }}">
+                    <textarea type="text" class="form-control @error('alamat_ortu') is-invalid @enderror" name="alamat_ortu"  id="alamat_ortu" value="{{ old('alamat_ortu') }}"> {{$orangTua->alamat_ortu}} </textarea>
                     @error('alamat_ortu')
                     <div class="invalid-feedback">
                         {{$message}}
                     </div>
                     @enderror
                 </div>
-                
+
                 <button type="submit" class="btn btn-outline-success">Simpan</button>
             </form>
         </div>
@@ -73,9 +73,9 @@
 </div>
 
 <script type="text/javascript">
-    $('.date').datepicker({  
+    $('.date').datepicker({
        format: 'dd-mm-yyyy'
-     });  
+     });
 </script>
 
 @endsection

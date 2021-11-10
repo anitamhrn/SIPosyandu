@@ -35,10 +35,11 @@
                 @enderror
             </div>
         </div>
-        
+
         <div class="form-group">
                     <label for="tanggal_pelayanan">Tanggal Pelayanan</label>
-                    <input autocomplete="off" type="date" class="date form-control @error('tanggal_pelayanan') is-invalid @enderror" name="tanggal_pelayanan"  id="tanggal_pelayanan" value="{{ old('tanggal_pelayanan') }}">
+                    <input autocomplete="off" type="date" class="date form-control @error('tanggal_pelayanan') is-invalid @enderror" name="tanggal_pelayanan" id="tanggal_pelayanan" value="{{ old('tanggal_pelayanan') }}">
+                    {{-- <input autocomplete="off" type="date" class="date form-control @error('tanggal_pelayanan') is-invalid @enderror" name="tanggal_pelayanan"  id="tanggal_pelayanan" value="{{ old('tanggal_pelayanan') }}"> --}}
                     @error('tanggal_pelayanan')
                    <div class="invalid-feedback">
                    {{$message}}
@@ -70,9 +71,9 @@
         </thead>
         <tbody>
           @php
-              $i=1; 
+              $i=1;
           @endphp
-          @foreach ($jadwal as $item) 
+          @foreach ($jadwal as $item)
           <tr>
           <th scope="row">{{$i++}}</th>
             <td>{{$item->nama_pelayanan}}</td>
@@ -85,7 +86,7 @@
                 <button type="submit" class="btn btn-danger" ><i class="fas fa-trash-alt"></i></button>
               </form>
               {{-- <a href="/jadwal/{{$item->id}}" class="btn btn-primary" ><i class="fas fa-search"></i></a>  --}}
-              <a href="/jadwal/{{$item->id}}/edit" class="btn btn-primary" ><i class="fas fa-edit"></i></a> 
+              <a href="/jadwal/{{$item->id}}/edit" class="btn btn-primary" ><i class="fas fa-edit"></i></a>
             </td>
           </tr>
           @endforeach
@@ -96,8 +97,8 @@
 </div>
 
 <script type="text/javascript">
-    $('.date').datepicker({  
+    $('.date').datepicker({
        format: 'yyyy-mm-dd'
-     });  
+     });
 </script>
 @endsection
