@@ -8,7 +8,7 @@
   <link rel="icon" type="image/png" href="../assets/img/favicon.png">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
-    Paper Dashboard 2 by Creative Tim
+    Admin Posyandu
   </title>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
   <!--     Fonts and icons     -->
@@ -17,6 +17,7 @@
   <!-- CSS Files -->
   <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
   <link href="../assets/css/paper-dashboard.css?v=2.0.1" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css">
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="../assets/demo/demo.css" rel="stylesheet" />
 </head>
@@ -41,45 +42,45 @@
       <div class="sidebar-wrapper">
        <!-- menu  -->
         <ul class="nav">
-          <li class="active ">
+          <li>
             <a href="/home">
               <i class="nc-icon nc-bank"></i>
               <p>Dashboard</p>
             </a>
           </li>
           <li>
-            <a href="./icons.html">
-              <i class="nc-icon nc-calendar-60"></i>
+            <a href="/jadwal">
+            <i class="bi bi-calendar2-check"></i>
               <p>Jadwal Pelayanan</p>
             </a>
           </li>
           <li>
             <a href="/orangtua">
-            <i class="nc-icon nc-calendar-60"></i>
+            <i class="bi bi-people-fill"></i>
               <p>Orang Tua</p>
             </a>
           </li>
           <li>
             <a href="/balita">
-              <i class="nc-icon nc-bell-55"></i>
+            <i class="bi bi-person-fill"></i>
               <p>Balita</p>
             </a>
           </li>
           <li>
-            <a href="./user.html">
-              <i class="nc-icon nc-single-02"></i>
+            <a href="/pengukuran">
+            <i class="bi bi-rulers"></i>
               <p>Pengukuran</p>
             </a>
           </li>
           <li>
-            <a href="./tables.html">
-              <i class="nc-icon nc-tile-56"></i>
+            <a href="/kader">
+            <i class="bi bi-person-badge-fill"></i>
               <p>Kader</p>
             </a>
           </li>
           <li>
-            <a href="./typography.html">
-              <i class="nc-icon nc-caps-small"></i>
+            <a href="laporan">
+            <i class="bi bi-journal-medical"></i>
               <p>Laporan</p>
             </a>
           </li>
@@ -98,13 +99,9 @@
                 <span class="navbar-toggler-bar bar3"></span>
               </button>
             </div>
-            <a class="navbar-brand" href="javascript:;">Posyandu</a>
+           
           </div>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-bar navbar-kebab"></span>
-            <span class="navbar-toggler-bar navbar-kebab"></span>
-            <span class="navbar-toggler-bar navbar-kebab"></span>
-          </button>
+          
           <div class="collapse navbar-collapse justify-content-end" id="navigation">
             <form>
               <div class="input-group no-border">

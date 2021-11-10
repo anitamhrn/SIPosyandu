@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('content')
 <script type="text/javascript" src="{{ asset('/js/app.js') }}"></script>
@@ -18,7 +18,7 @@
     <div class="card border-left-danger shadow p-3 mb-5 bg-white rounded">
         <div class="d-flex justify-content-lg-end mb-3">
             <a class="btn btn-outline-secondary" href="/balita/create">
-                <span class="icon text"> <i class="fas fa-plus"> </i> </span>Tambah Data 
+                <span class="icon text"> <i class="bi bi-plus-square"></i> </span>Tambah Data 
             </a>
         </div>
 
@@ -51,10 +51,10 @@
                         <form action="/balita/{{$item->id}}" method="post" class="d-inline" onsubmit="return confirm('Yakin ingin menghapus data ini?')">
                             @csrf
                             @method('delete')
-                            <button type="submit" class="btn btn-danger" ><i class="fas fa-trash"></i></button>
+                            <button type="submit" class="btn btn-danger" ><i class="bi bi-trash"></i></button>
                         </form>
-                        {{-- <a href="/balita/{{$item->id}}" class="btn btn-primary" ><i class="fas fa-search"></i></a>  --}}
-                        <a href="/balita/{{$item->id}}/edit" class="btn btn-primary" ><i class="fas fa-edit"></i></a> 
+                        {{-- <a href="/balita/{{$item->id}}" class="btn btn-primary" ><i class="bi bi-search"></i></a>  --}}
+                        <a href="/balita/{{$item->id}}/edit" class="btn btn-primary" ><i class="bi bi-pencil-square"></i></a> 
                     </td>
                 </tr>
                 @endforeach
