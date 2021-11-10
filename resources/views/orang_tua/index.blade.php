@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('content')
 <script type="text/javascript" src="{{ asset('/js/app.js') }}"></script>
@@ -52,7 +52,7 @@
                             <button type="submit" class="btn btn-danger" ><i class="bi bi-trash"></i></button>
                         </form>
                         {{-- <a href="/orangtua/{{$item->id}}/delete" class="btn btn-primary" onclick="return sweetDel(event)"><i class="bi bi-trash"></i></a> --}}
-                        {{-- <a href="/balita/{{$item->id}}" class="btn btn-primary" ><i class="fas fa-search"></i></a>  --}}
+                        {{-- <a href="/balita/{{$item->id}}" class="btn btn-primary" ><i class="bi bi-search"></i></a>  --}}
                         <a href="/orangtua/{{$item->id}}/edit" class="btn btn-primary" ><i class="bi bi-pencil-square"></i></a>
                     </td>
                 </tr>

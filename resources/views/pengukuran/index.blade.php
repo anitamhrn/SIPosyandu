@@ -19,12 +19,12 @@
     <div class="card border-left-danger shadow p-3 mb-5 bg-white rounded">
         <div class="d-flex justify-content-lg-end mb-3">
             <a class="btn btn-outline-secondary" href="/pengukuran/create">
-                <span class="icon text"> <i class="fas fa-plus"> </i> </span>Tambah Data
+                <span class="icon text"> <i class="bi bi-plus-square"></i></span>Tambah Data
             </a>
         </div>
 
         <div class="table-responsive">
-        <table class="table table-hover" id="dataTable" width="100%" cellspacing="0">
+        <table class="table table-hover table-striped" id="dataTable" width="100%" cellspacing="0">
             <thead style="background: #F38BA0" >
               <tr>
                 <th scope="col">No</th>
@@ -35,12 +35,12 @@
                 <th scope="col">Lingkar Lengan</th>
                 <th scope="col">Lingkar Kepala</th>
                 <th scope="col">Vitamin</th>
-                <th scope="col">Asi Bulan Ke-1</th>
-                <th scope="col">Asi Bulan Ke-2</th>
-                <th scope="col">Asi Bulan Ke-3</th>
-                <th scope="col">Asi Bulan Ke-4</th>
-                <th scope="col">Asi Bulan Ke-5</th>
-                <th scope="col">Asi Bulan Ke-6</th>
+                <th scope="col">Asi Ke-1</th>
+                <th scope="col">Asi Ke-2</th>
+                <th scope="col">Asi Ke-3</th>
+                <th scope="col">Asi Ke-4</th>
+                <th scope="col">Asi Ke-5</th>
+                <th scope="col">Asi Ke-6</th>
                 <th scope="col">Catatan</th>
                 <th scope="col">Aksi</th>
               </tr>
@@ -114,10 +114,10 @@
                         <form action="/pengukuran/{{$item->id}}" method="post" class="d-inline" onsubmit="return confirm('Yakin ingin menghapus data ini?')">
                             @csrf
                             @method('delete')
-                            <button type="submit" class="btn btn-danger" ><i class="fas fa-trash-alt"></i></button>
+                            <button type="submit" class="btn btn-danger" ><i class="bi bi-trash"></i></button>
                         </form>
-                        {{-- <a href="/pengukuran/{{$item->id}}" class="btn btn-primary" ><i class="fas fa-search"></i></a>  --}}
-                        <a href="/pengukuran/{{$item->id}}/edit" class="btn btn-primary" ><i class="fas fa-edit"></i></a>
+                        {{-- <a href="/pengukuran/{{$item->id}}" class="btn btn-primary" ><i class="bi bi-search"></i></a>  --}}
+                        <a href="/pengukuran/{{$item->id}}/edit" class="btn btn-primary" ><i class="bi bi-pencil-square"></i></a>
                     </td>
                 </tr>
                 @endforeach

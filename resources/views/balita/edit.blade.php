@@ -1,4 +1,5 @@
 @extends('layouts.app')
+
 @section('content')
 <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.css" rel="stylesheet">
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
@@ -16,10 +17,10 @@
             <div class="card shadow p-3 mb-5 bg-white rounded">
             <form action="/balita/{{$balita->id}}" method="post" enctype="multipart/form-data">
                 @csrf
-                @method('post')
+                @method('patch')
                 <div class="form-group">
                     <label for="nama_balita">Nama Balita</label>
-                    <input autocomplete="off" type="text" class="form-control @error('nama_balita') is-invalid @enderror" name="nama_balita"  id="nama_balita" value="{{ old('nama_balita') }}">
+                    <input type="text" class="form-control @error('nama_balita') is-invalid @enderror" name="nama_balita"  id="nama_balita" value="{{ old('nama_balita', $balita->nama_balita) }}">
                     @error('nama_balita')
                     <div class="invalid-feedback">
                         {{$message}}
@@ -27,8 +28,17 @@
                     @enderror
                 </div>
                 <div class="form-group">
+                    <label for="anak_ke">Anak Ke-</label>
+                    <input autocomplete="off" type="text" class="form-control @error('anak_ke') is-invalid @enderror" name="anak_ke"  id="anak_ke" value="{{ old('anak_ke', $balita->anak_ke) }}">
+                    @error('anak_ke')
+                    <div class="invalid-feedback">
+                    {{$message}}
+                    </div>
+                    @enderror
+               </div>
+                <div class="form-group">
                     <label for="tgl_lahir">Tanggal Lahir</label>
-                    <input autocomplete="off" type="text" class="date form-control @error('tgl_lahir') is-invalid @enderror" name="tgl_lahir"  id="tgl_lahir" value="{{ old('tgl_lahir') }}">
+                    <input autocomplete="off" type="text" class="date form-control @error('tgl_lahir') is-invalid @enderror" name="tgl_lahir"  id="tgl_lahir" value="{{ old('tgl_lahir', $balita->tgl_lahir) }}">
                     @error('tgl_lahir')
                    <div class="invalid-feedback">
                    {{$message}}
@@ -37,7 +47,7 @@
                </div>
                <div class="form-group">
                     <label for="nik_balita">NIK Balita</label>
-                    <input autocomplete="off" type="text" class="form-control @error('nik_balita') is-invalid @enderror" name="nik_balita"  id="nik_balita" value="{{ old('nik_balita') }}">
+                    <input autocomplete="off" type="text" class="form-control @error('nik_balita') is-invalid @enderror" name="nik_balita"  id="nik_balita" value="{{ old('nik_balita', $balita->nik_balita) }}">
                     @error('nik_balita')
                     <div class="invalid-feedback">
                     {{$message}}
@@ -46,7 +56,7 @@
                </div>
                <div class="form-group">
                     <label for="tgl_lahir">Jenis Kelamin</label>
-                    <select name="jenis_kelamin" class="custom-select mr-sm-2 @error('jenis_kelamin') is-invalid @enderror" id="inlineFormCustomSelect">
+                    <select name="jenis_kelamin" class="custom-select mr-sm-2 @error('jenis_kelamin') is-invalid @enderror" id="inlineFormCustomSelect"  value="{{ old('jenis_kelamin', $balita->jenis_kelamin) }}">
                         <option value="Laki-laki">Laki-laki</option>
                         <option value="Perempuan">Perempuan</option>
                     </select>
