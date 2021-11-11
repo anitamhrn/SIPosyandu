@@ -55,16 +55,13 @@
                     @enderror
                </div>
                <div class="form-group">
-                    <label for="tgl_lahir">Jenis Kelamin</label>
-                    <select name="jenis_kelamin" class="custom-select mr-sm-2 @error('jenis_kelamin') is-invalid @enderror" id="inlineFormCustomSelect"  value="{{ old('jenis_kelamin', $balita->jenis_kelamin) }}">
-                        <option value="Laki-laki">Laki-laki</option>
-                        <option value="Perempuan">Perempuan</option>
-                    </select>
-                    @error('jenis_kelamin')
-                    <div class="invalid-feedback">
-                        {{$message}}
-                    </div>
-                    @enderror
+                        <label for="jenis_kelamin">Jenis Kelamin :</label> <br>
+                    <div class="form-check form-check-inline">
+                        <label for="jenis_kelamin">
+                            <input type="radio" name="jenis_kelamin" value="Laki-laki" id="jenis_kelamin" {{$balita->jenis_kelamin == 'Laki-laki'? 'checked' : ''}} >Laki-Laki
+                            <input type="radio" name="jenis_kelamin" value="Perempuan" id="jenis_kelamin" {{$balita->jenis_kelamin == 'Perempuan'? 'checked' : ''}} >Perempuan
+                        </label>
+                        </div>
                 </div>
                 <div class="form-group">
                     <label for="inlineFormCustomSelect">Nama Orang Tua</label>

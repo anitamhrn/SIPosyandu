@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Balita;
 use App\Models\Jadwal;
 use App\Models\OrangTua;
-use App\Models\Jadwal;
 use App\Models\Pengukuran;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -14,11 +13,6 @@ class PengukuranController extends Controller
 {
     public function index()
     {
-<<<<<<< HEAD
-        $jadwal = Jadwal::all();
-        $balita = Balita::all();
-        $pengukuran = Pengukuran::orderBy('created_at','ASC')->with('balita','jadwal')->paginate(10);
-=======
         $tanggalPelayanan = Jadwal::all();
         // $balita = Balita::all();
         // $pengukuran = Pengukuran::orderBy('created_at','ASC')->with('balita')->paginate(10);
@@ -28,7 +22,6 @@ class PengukuranController extends Controller
             ->select('pengukuran.*', 'balita.nama_balita')
             ->paginate(10);
 
->>>>>>> a92c4888a44b4980bb8e9b0db9feaa798c72abb8
         $beratBadan = [];
         $tinggiBadan = [];
         $lingkarLengan = [];
@@ -44,14 +37,9 @@ class PengukuranController extends Controller
         $no = 1;
 
         return view('pengukuran.index',compact(
-            
+            'tanggalPelayanan',
             'pengukuran',
-<<<<<<< HEAD
-            'jadwal_id',
-            'balita',
-=======
             // 'balita',
->>>>>>> a92c4888a44b4980bb8e9b0db9feaa798c72abb8
             'beratBadan',
             'tinggiBadan',
             'lingkarLengan',
@@ -71,14 +59,8 @@ class PengukuranController extends Controller
     public function create()
     {
         $balita = Balita::all();
-<<<<<<< HEAD
-        
-        $jadwal = Jadwal::all();
-        return view('pengukuran.create', compact('jadwal','balita'));
-=======
         $tanggalPelayanan = Jadwal::all();
         return view('pengukuran.create', compact('tanggalPelayanan', 'balita'));
->>>>>>> a92c4888a44b4980bb8e9b0db9feaa798c72abb8
     }
 
 
