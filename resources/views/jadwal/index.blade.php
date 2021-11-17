@@ -83,10 +83,9 @@
               <form action="/jadwal/{{$item->id}}" method="post" class="d-inline" onsubmit="return confirm('Yakin ingin menghapus data ini?')">
                 @csrf
                 @method('delete')
-                <button type="submit" class="btn btn-danger" ><i class="fas fa-trash-alt"></i></button>
+                <button type="submit" class="btn btn-danger" ><i class="bi bi-trash"></i></button>
               </form>
-              {{-- <a href="/jadwal/{{$item->id}}" class="btn btn-primary" ><i class="fas fa-search"></i></a>  --}}
-              <a href="/jadwal/{{$item->id}}/edit" class="btn btn-primary" ><i class="fas fa-edit"></i></a>
+              <a href="/jadwal/{{$item->id}}/edit" class="btn btn-primary" ><i class="bi bi-pencil-square"></i></a>
             </td>
           </tr>
           @endforeach

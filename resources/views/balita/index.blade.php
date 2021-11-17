@@ -53,7 +53,6 @@
                             @method('delete')
                             <button type="submit" class="btn btn-danger" ><i class="bi bi-trash"></i></button>
                         </form>
-                        {{-- <a href="/balita/{{$item->id}}" class="btn btn-primary" ><i class="bi bi-search"></i></a>  --}}
                         <a href="/balita/{{$item->id}}/edit" class="btn btn-primary" ><i class="bi bi-pencil-square"></i></a> 
                     </td>
                 </tr>

@@ -3,7 +3,7 @@
 use App\Http\Controllers\AkunController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\BalitaController;
-use App\Http\Controllers\BlogController;
+use App\Http\Controllers\KaderController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\JadwalController;
 use App\Http\Controllers\KeuanganController;
@@ -44,6 +44,7 @@ Route::resource('/balita' ,BalitaController::class);
 Route::resource('/pengukuran' ,PengukuranController::class);
 Route::resource('/orangtua' ,OrangTuaController::class);
 Route::resource('/jadwal' ,JadwalController::class);
+Route::resource('/kader' ,KaderController::class);
 
 // Route::get('/orangtua/{$orangtua}/delete', [OrangTuaController::class, 'destroy']);
 Route::post('/orangtua/{$id}/delete', [OrangTuaController::class, 'destroy']);

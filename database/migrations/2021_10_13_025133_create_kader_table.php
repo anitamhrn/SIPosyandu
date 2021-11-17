@@ -20,7 +20,7 @@ class CreateKaderTable extends Migration
             $table->string('alamat_kader');
             $table->timestamps();
         });
-    }
+    } 
 
     /**
      * Reverse the migrations.
