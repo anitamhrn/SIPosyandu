@@ -84,6 +84,19 @@
               <p>Laporan</p>
             </a>
           </li>
+          <li>
+           
+             <a class="bi bi-box-arrow-left" href="{{ route('logout') }}"
+            onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+            {{ __('Log Out') }} 
+          </a>
+
+          <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                      @csrf
+                    </form>
+                         
+           
+          </li>
         </ul>
       </div>
     </div>
