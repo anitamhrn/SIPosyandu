@@ -23,22 +23,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('auth.login');
+    return view('welcome');
 });
 
 Auth::routes();
 
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('dashboard', [DashboardController::class, 'index']);
-
-// Route::get('/home', 'PageController@index');
-
-//Route input Data Create Read Update Delete @resource
-// Route::get('/balita', [BalitaController::class, 'balita']);
-
-// Route::get('/balita', 'BalitaController@selectBalita');
-// Route::get('/input_balita', 'BalitaController@index');
-
 
 Route::resource('/balita' ,BalitaController::class);
 Route::resource('/pengukuran' ,PengukuranController::class);
@@ -46,5 +38,4 @@ Route::resource('/orangtua' ,OrangTuaController::class);
 Route::resource('/jadwal' ,JadwalController::class);
 Route::resource('/kader' ,KaderController::class);
 
-// Route::get('/orangtua/{$orangtua}/delete', [OrangTuaController::class, 'destroy']);
 Route::post('/orangtua/{$id}/delete', [OrangTuaController::class, 'destroy']);
