@@ -19,10 +19,10 @@
             @error('email')
                 <div class="invalid-feedback">
                     {{ $message }}
-                </div>
+                </div> 
             @enderror
         </div>
-        <div class="mb-5">
+        <div class="mb-3">
             <label for="password" class="form-label">Password</label>
             <input name="password" type="password" class="form-control" id="password" required>
         </div>
