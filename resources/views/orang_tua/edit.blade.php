@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+ 
 @section('content')
 <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.css" rel="stylesheet">
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
@@ -12,7 +12,7 @@
       <li class="breadcrumb-item active" aria-current="page">Edit Data Orang Tua</li>
     </ol>
 </nav>
-
+<div class="">
     <div class="row justify-content-center">
         <div class="col-md-8">
          <div class="card shadow p-3 mb-5 bg-white rounded">
