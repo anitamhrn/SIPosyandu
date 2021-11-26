@@ -24,14 +24,12 @@
         @method('post')
         <div class="form-group">
             <label for="nama_kader">Nama Kader</label>
-            <div class="input-group mb-3">
                 <input autocomplete="off" type="text" class="form-control  @error('nama_kader') is-invalid @enderror" name="nama_kader" type="text" >
                 @error('nama_kader')
                 <div class="invalid-feedback">
                     {{$message}}
                 </div>
                 @enderror
-            </div>
         </div>
         <div class="form-group">
                     <label for="no_hp">No Hp</label>
