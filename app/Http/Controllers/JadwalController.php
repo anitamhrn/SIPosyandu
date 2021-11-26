@@ -73,14 +73,14 @@ class JadwalController extends Controller
     {
         $request->validate([
             'nama_pelayanan'=>'required',
-            'tanggal_kegiatan'=>'required',
+            'tanggal_pelayanan'=>'required',
             'tempat_pelayanan'=>'required',
         ]);
         
         Jadwal::where('id',$id)
                 ->update([
                     'nama_pelayanan'=>$request->nama_pelayanan,
-                    'tanggal_kegiatan'=>$request->tanggal_kegiatan,
+                    'tanggal_pelayanan'=>$request->tanggal_pelayanan,
                     'tempat_pelayanan'=>$request->tempat_pelayanan,
                     
                 ]);

@@ -1,10 +1,10 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('content')
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
       <li class="breadcrumb-item"><a href="/dashboard" style="color: #F38BA0">Dashboard</a></li>
-      <li class="breadcrumb-item active" aria-current="page">Kader Posyand</li>
+      <li class="breadcrumb-item active" aria-current="page">Kader Posyandu</li>
     </ol>
 </nav>
 @if (session('status'))
@@ -16,9 +16,7 @@
 </div>
 @endif
 <div class="card shadow p-3 mb-5 bg-white rounded border-left-primary">
-<div class="d-flex justify-content-lg-end mb-3">
-    Data Kader Posyandu
-  </div>
+
   <div class="card-body">
     <div class="col-md-12">
     <form action="/kader" method="post" enctype="multipart/form-data">
@@ -27,7 +25,7 @@
         <div class="form-group">
             <label for="nama_kader">Nama Kader</label>
             <div class="input-group mb-3">
-                <input autocomplete="off" type="text" class="form-control  @error('nama_kader') is-invalid @enderror" name="nama_kader" type="text" placeholder="masukkan nama" >
+                <input autocomplete="off" type="text" class="form-control  @error('nama_kader') is-invalid @enderror" name="nama_kader" type="text" >
                 @error('nama_kader')
                 <div class="invalid-feedback">
                     {{$message}}
@@ -47,7 +45,7 @@
         <div class="form-group">
                 <label for="alamat_kader">Alamat</label>
                     <textarea autocomplete="off" type="text" class="form-control @error('alamat_kader') is-invalid @enderror" name="alamat_kader"  id="alamat_kader" value="{{ old('alamat_kader') }}"></textarea>
-                    @error('alamat_ortu')
+                    @error('alamat_kader')
                     <div class="invalid-feedback">
                         {{$message}}
                     </div>
